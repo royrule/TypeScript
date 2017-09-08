@@ -1,0 +1,34 @@
+<p>
+  human-list works!  
+</p>
+
+<div class="total-stock">
+<p>There are {{totalHumans()}} humans in stock.</p>
+</div>
+
+<h2 (mouseover)="getCoord($event)">Hover Me</h2>
+
+<div class="flex">
+    <input type="text" name="filtroNombre">
+    <input type="submit" (click)="humanoFiltrado">
+        
+<section *ngFor="let human of myHumans" [class.selected]="human.selected">
+    <p><img [src]="human.image" width="420px" height="420px" /></p> 
+    <h2>{{human.name | uppercase}}</h2>
+    <p>{{human.description | uppercase}}</p>
+<aside>      
+   <ul>
+    <li [class.selected]="human.selected">
+      <p>{{human.price | currency : 'EUR' : true}}</p>
+    </li>
+      <p *ngIf="human.stock > 0">{{human.stock}} in stock</p>
+      <p *ngIf="human.stock === 0">Out of Stock</p>
+    <div class="panel-amount">
+      <input type="number" maxlength="3" placeholder="0" class="amount" [(ngModel)]="human.quantity"/>
+      <button class="btn-up" (click)="upQuantity(human)"[disabled]="human.stock===0">+</button>
+      <button class="btn-down" (click)="downQuantity(human)"[disabled]="human.quantity===0">-</button>
+      <input type="text" (keydown)="showKey($event)" >      
+    </div>
+   </ul>
+</aside>
+</section>

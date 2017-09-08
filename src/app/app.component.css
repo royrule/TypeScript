@@ -1,5 +1,16 @@
 * {
     font-family: aharoni;
-    color: #C59D9D;
+    color: #511A1A;
     text-align: center;
+}
+.image {
+    position: relative;
+    width: 100%;
+}
+h1 {
+    position: absolute;
+    width: 100%;
+}
+body{
+    background-color: #4E7495
 }
