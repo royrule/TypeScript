@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Human } from './human.model';
 import { HUMANS } from './mocks';
+import { HumanListService } from './Human-List.service';
 @Component({
   selector: 'app-human-list',
   templateUrl: './human-list.component.html',
@@ -8,12 +9,14 @@ import { HUMANS } from './mocks';
 })
 export class HumanListComponent implements OnInit {
 
-    myHumans: Human[];
+  nombreH: string;
+  myHumans: Human[];
 
-  constructor() {}
+  constructor(private humanListService: HumanListService) { }
 
   ngOnInit() {
-    this.myHumans = HUMANS;
+    this.humanListService.getHumanList()
+                  .subscribe(myHumans => this.myHumans = myHumans);
   }
 
   totalHumans() {
@@ -21,7 +24,7 @@ export class HumanListComponent implements OnInit {
     for (let myHuman of this.myHumans) { // siempre poner this.
       sum += myHuman.stock;
     }
-    return sum;
+    return this.myHumans.length;
 
   }
 
@@ -33,17 +36,19 @@ export class HumanListComponent implements OnInit {
     human.quantity--;
     human.stock++;
   }
-  showKey(event) {
+
+
+
+ /* showKey(event) {
     alert(event.keyCode);
   }
-getCoord(event) {
-  console.log(event.clientX + ' ' + event.clientY);
+  getCoord(event) {
+    console.log(event.clientX + ' ' + event.clientY);
 
-}
-searchHuman(Human) {
+  }
+  */
 
-}
-//  return this.myHumans.reduce(function(prev, current) { return prev + current.stock; }, 0);
+  //  return this.myHumans.reduce(function(prev, current) { return prev + current.stock; }, 0);
 
-// return this.myHumans.reduce( (prev, current) => prev + current.stock, 0)
+  // return this.myHumans.reduce( (prev, current) => prev + current.stock, 0)
 }

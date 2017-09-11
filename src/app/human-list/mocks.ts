@@ -2,7 +2,7 @@ import { Human } from './human.model';
 
 export const HUMANS: Human[] = [{
 'id': 1,
-'name': 'XX',
+'name': 'Jerome',
 'description': '¡These mad human is the best one!',
 'stock': 500,
 'price': 30.00,
@@ -12,7 +12,7 @@ export const HUMANS: Human[] = [{
 },
 {
 'id': 2,
-'name': 'XY',
+'name': 'Beatrix',
 'description': '¡These almost-human is the best one!',
 'stock': 10,
 'price': 20.00,
@@ -22,7 +22,7 @@ export const HUMANS: Human[] = [{
 },
 {
 'id': 3,
-'name': 'XZ',
+'name': 'ZdeZombie',
 'description': '¡These NOT human is the best one!',
 'stock': 0,
 'price': 90.00,
