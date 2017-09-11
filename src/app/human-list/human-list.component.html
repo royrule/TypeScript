@@ -5,6 +5,10 @@
   <div class="total-stock">
   <p>There are {{totalHumans()}} humans in stock.</p>
   </div>
+  <input [(ngModel)]="humanLi" {{human.description | uppercase}}/>
+  <h2>{{human.name | uppercase}}</h2>
+  
+
   
   <!-- <h2 (mouseover)="getCoord($event)">Hover Me</h2> -->
   

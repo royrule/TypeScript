@@ -19,7 +19,7 @@ export class HumanListService {
     updateItem(human: Human): Observable<Human[]> {
         let headers = new Headers({ 'Content-Type': 'application/json'});
         let options = new RequestOptions({ headers : headers });
-        return this.http.put(`${this.humanUrl}/${human['id']}`, headers, options);
+        return this.http.put(`${this.humanUrl}/${human['id']}`, headers, options)
             .map( (res: Response) => res.json() )
            .catch( (error: any) => Observable.throw(error.json().error || 'Server error') );
     }
