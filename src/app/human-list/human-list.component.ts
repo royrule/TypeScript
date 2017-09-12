@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Human } from './human.model';
 import { HUMANS } from './mocks';
 import { HumanListService } from './Human-List.service';
+
 @Component({
   selector: 'app-human-list',
   templateUrl: './human-list.component.html',
@@ -10,6 +11,7 @@ import { HumanListService } from './Human-List.service';
 export class HumanListComponent implements OnInit {
 
   nombreH: string;
+  editable: boolean;
   myHumans: Human[];
 
   constructor(private humanListService: HumanListService) { }
@@ -35,6 +37,11 @@ export class HumanListComponent implements OnInit {
   downQuantity(human: Human) {
     human.quantity--;
     human.stock++;
+  }
+
+  getUpdateService( human: Human) {
+
+    this.humanListService.updateHuman(human).subscribe();
   }
 
 
