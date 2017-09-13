@@ -1,48 +1,34 @@
 <p>
     human-list works!  
-  </p>
-  
+</p>
   <div class="total-stock">
-  <p>There are {{totalHumans()}} humans in stock.</p>
+<h4>There are {{totalHumans()}} humans in stock.</h4>
+<p>Cart items {{getCartItems()}} - <a routerLink="/order" class= "nav-link" routerLinkActive="active">Order</a></p>
   </div>
-  <p><ngIf="$editable=true"><input (click)="getUpdateService()" type="text" value="Introduzca cosas" [(ngModel)]="$editable"/></p>
-
-  <!-- <h2 (mouseover)="getCoord($event)">Hover Me</h2> -->
-  
   <div class="flex">
-    <input [(ngModel)]="nombreH"/>
-  <section *ngFor="let human of myHumans | search:nombreH" [class.selected]="human.selected">
-      <p><img [src]="human.image" width="420px" height="420px" /></p> 
-      <h2>{{human.name | uppercase}}</h2>
-      <p>{{human.description | uppercase}}</p>
-  <aside>      
-     <ul>
-      <li [class.selected]="human.selected">
-        <p>{{human.price | currency : 'EUR' : true}}</p>
-      </li>
+   <p>Search what you want: <input [(ngModel)]="nombreH"/></p>
+   <h1 align=right><img src="../../assets/carrito.png" /> {{carrito?.length}}</h1>
+<section class="sect">
+  <ul>
+    <li *ngFor="let human of myHumans | search:nombreH" [class.selected]="human.selected">
+     
+        <p><img [src]="human.image" width="420px" height="420px" /></p> 
+        <h2>{{human.name | uppercase}}</h2>
+        <p>{{human.description | uppercase}}</p>        
+        <p *ngIf="!human.editable" id="description" (click)="disabled(human)">{{human.description}}</p>
+        <p *ngIf="human.editable"><input type="text" [(ngModel)]="human.description" (blur)="getUpdateService(human)"/></p>  
         <p *ngIf="human.stock > 0">{{human.stock}} in stock</p>
         <p *ngIf="human.stock === 0">Out of Stock</p>
+        <p>{{human.price | currency : 'EUR' : true}}</p>
+        <p><button class="button" (click)="addToCart(human)">Add to cart</button></p>    
       <div class="panel-amount">
-        <input type="number" maxlength="3" placeholder="0" class="amount" [(ngModel)]="human.quantity"/>
-        <button class="btn-up" (click)="upQuantity(human)"[disabled]="human.stock===0">+</button>
-        <button class="btn-down" (click)="downQuantity(human)"[disabled]="human.quantity===0">-</button>    
+            <input type="number" maxlength="3" placeholder="0" class="amount" [(ngModel)]="human.quantity"/>
+            <button class="btn-up" (click)="upQuantity(human)"[disabled]="human.stock===0">+</button>
+            <button class="btn-down" (click)="downQuantity(human)"[disabled]="human.quantity===0">-</button>    
       </div>
-     </ul>
-  </aside>
-  </section>
+    </li>    
+  </ul>
+</section>
+    </div>
 <!-- <h2 (mouseover)="getCoord($event)">Hover Me</h2> -->
-
 <!-- <input type="text" (keydown)="showKey($event)" >   -->
-
-<!-- <section *ngFor="#name of searchHuman" [class]="human"> -->
-    <!-- <h4>{{searchHuman.#names}}</h4> -->
-    <!-- <section *ngFor="searchHuman"[(ngModel)]="Human"></p> -->
-      <!-- <div>
-          Search:
-
-          <li [class.selected]="human.selected">
-          <h2>{{human.name | uppercase}}</h2>
-      </div>
-    <br>
-  <br>
-<br> -->

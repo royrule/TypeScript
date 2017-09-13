@@ -8,4 +8,5 @@ export class Human {
     image: string;
     selected: boolean;
     quantity: number;
+    editable: boolean;
 }

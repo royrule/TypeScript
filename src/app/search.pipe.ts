@@ -7,11 +7,16 @@ import { Human } from './human-list/human.model';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(items: Human[], filterBy: string): Human[] {
-    if (filterBy && filterBy.trim().length === 0) {
-     return items;
+  transform(myHumans: Human[], filterBy: string): any {
+    if ( !myHumans) {
+      return null;
     }
-     return items.filter(human => human.name.trim().toLowerCase().indexOf(filterBy.trim().toLowerCase()) !== -1);
+    if ( filterBy === null || filterBy === undefined  ) {
+      return null;
     }
-
+    if (filterBy.trim().length === 0) {
+      return myHumans;
+    }
+    return myHumans.filter(human => human.name.trim().toLowerCase().indexOf(filterBy.trim().toLowerCase()) !== -1);
+  }
 }

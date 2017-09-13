@@ -3,12 +3,13 @@
     {
       "id": 1,
       "name": "Jerome",
-      "description": "¡These mad human is the best one!",
-      "stock": 500,
+      "description": "",
+      "stock": 492,
       "price": 30,
       "image": "../assets/humano-1.jpg",
       "selected": false,
-      "quantity": 0
+      "quantity": 0,
+      "editable": true
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "price": 20,
       "image": "../assets/humano-2.jpg",
       "selected": false,
-      "quantity": 0
+      "quantity": 0,
+      "editable": true
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "price": 90,
       "image": "../assets/humano-3.jpg",
       "selected": false,
-      "quantity": 0
+      "quantity": 0,
+      "editable": true
     }
   ]
 }

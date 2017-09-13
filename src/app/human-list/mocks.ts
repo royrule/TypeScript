@@ -8,7 +8,8 @@ export const HUMANS: Human[] = [{
 'price': 30.00,
 'image': '../assets/humano-1.jpg',
 'selected': false,
-'quantity': 0
+'quantity': 0, 
+'editable': false
 },
 {
 'id': 2,
@@ -18,7 +19,8 @@ export const HUMANS: Human[] = [{
 'price': 20.00,
 'image': '../assets/humano-2.jpg',
 'selected': false,
-'quantity': 0
+'quantity': 0,
+'editable': false
 },
 {
 'id': 3,
@@ -28,7 +30,8 @@ export const HUMANS: Human[] = [{
 'price': 90.00,
 'image': '../assets/humano-3.jpg',
 'selected': false,
-'quantity': 0
+'quantity': 0,
+'editable': false
 }];
 
 
